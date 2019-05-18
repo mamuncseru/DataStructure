@@ -8,6 +8,23 @@ struct Array
     int length;
 };
 
+// Tail Recursion - Similar to iteration
+void DisplayElementTail(int *A, int n)
+{
+    if(n == 0)
+        return;
+    DisplayElementTail(A, n-1);
+    printf("%d ", A[n-1]);
+}
+
+void DisplayElementHead(int *A, int n)
+{
+    if(n == 0)
+        return;
+    printf("%d ", A[n-1]);
+    DisplayElementHead(A, n-1);
+}
+
 //Summation Function
 int SumOfArray(int *A, int n)
 {
@@ -52,16 +69,27 @@ int main()
     //memory Initialization
     array.A = (int *)malloc(array.size *sizeof(int));
     ReadArray(&array);
+    //Iteratively Displaying Array Element
     DisplayArray(&array);
 
     //sum of the array using recursion
     sum = SumOfArray(array.A, array.length);
     printf("sum of the Array is : %d\n",sum);
 
+        // Calling Tail Recursion
+    printf("\nTail Recursion Displaying:\n");
+    DisplayElementTail(array.A, array.length);
+        //Calling Head Recursion
+    printf("\nHead Recursion Displaying:\n");
+    DisplayElementHead(array.A, array.length);
+
     //Factorial
-    printf("Enter the number that you determine the factorial: ");
+    printf("\nEnter the number that you determine the factorial: ");
     scanf("%d", &fact);
     printf("%lld\n", Factorial(fact));
+
+
+
     return 0;
 
 }
