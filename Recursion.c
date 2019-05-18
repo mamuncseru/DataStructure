@@ -8,6 +8,17 @@ struct Array
     int length;
 };
 
+//Nested Recursion
+
+int NestedRecursion(int n)
+{
+    if(n>100)
+        return n-10;
+    return NestedRecursion(NestedRecursion(n+11));
+}
+
+
+// Tree Recursion Displaying the Array Element
 void DisplayElementTree1(int *A, int n)
 {
     if(n == 0)
@@ -113,6 +124,11 @@ int main()
     DisplayElementTree2(array.A, array.length);
     printf("\nTree 3 Recursion Displaying:\n");
     DisplayElementTree3(array.A, array.length);
+
+
+    printf("\nNested Recursion:\n");
+    int res = NestedRecursion(95);
+    printf("%d\n", res);
 
     //Factorial
     printf("\nEnter the number that you determine the factorial: ");
