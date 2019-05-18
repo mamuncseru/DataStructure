@@ -8,6 +8,13 @@ struct Array
     int length;
 };
 
+//recursive Fibonacci Function
+long long rfibonacci(int n)
+{
+    if(n <= 1)
+        return n;
+    return rfibonacci(n-2)+rfibonacci(n-1);
+}
 int SumOfArray(int *A, int n)
 {
     if(n == 0)
@@ -65,5 +72,9 @@ int main()
     //Power Function Calling
     printf("%d to the power %d is: %d\n", a, b, Power(a, b));
 
+    printf("Enter the fibonacci position: \n");
+    scanf("%d",&a);
+    //fibonacci Function calling
+    printf("%d\n", rfibonacci(a));
 
 }
