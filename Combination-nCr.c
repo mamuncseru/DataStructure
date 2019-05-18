@@ -16,11 +16,21 @@ int nCr(int n, int r)
     denominator = Factorial(r)*Factorial(n-r);
     return num/denominator;
 }
+//combination using Pascal Triangle
+
+int NCR(int n, int r)
+{
+    if(n ==r || r == 0)
+        return 1;
+    return NCR(n-1, r-1) + NCR(n-1, r);
+}
 
 int main()
 {
     // General Way
-    printf("%d \n", nCr(5,3));
+    printf("%d \n", nCr(5,2));
 
+    //using pascal triangle
+    printf("%d\n", NCR(5,2));
     return 0;
 }
