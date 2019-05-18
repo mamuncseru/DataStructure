@@ -8,6 +8,30 @@ struct Array
     int length;
 };
 
+void DisplayElementTree1(int *A, int n)
+{
+    if(n == 0)
+        return;
+    printf("%d ", A[n-1]);
+    DisplayElementTree1(A, n-1);
+    DisplayElementTree1(A, n-1);
+}
+void DisplayElementTree2(int *A, int n)
+{
+    if(n == 0)
+        return;
+    DisplayElementTree2(A, n-1);
+    printf("%d ", A[n-1]);
+    DisplayElementTree2(A, n-1);
+}
+void DisplayElementTree3(int *A, int n)
+{
+    if(n == 0)
+        return;
+    DisplayElementTree3(A, n-1);
+    DisplayElementTree3(A, n-1);
+    printf("%d ", A[n-1]);
+}
 // Tail Recursion - Similar to iteration
 void DisplayElementTail(int *A, int n)
 {
@@ -82,6 +106,13 @@ int main()
         //Calling Head Recursion
     printf("\nHead Recursion Displaying:\n");
     DisplayElementHead(array.A, array.length);
+
+    printf("\nTree 1 Recursion Displaying:\n");
+    DisplayElementTree1(array.A, array.length);
+    printf("\nTree 2 Recursion Displaying:\n");
+    DisplayElementTree2(array.A, array.length);
+    printf("\nTree 3 Recursion Displaying:\n");
+    DisplayElementTree3(array.A, array.length);
 
     //Factorial
     printf("\nEnter the number that you determine the factorial: ");
