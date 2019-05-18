@@ -32,6 +32,15 @@ double ie(int x, int n)
     return s;
 }
 
+// Taylor Series Horner's Rule
+double he(int x, int n)
+{
+    static double s;
+    if(n == 0)
+        return s;
+    s = 1+x*s/n;
+    return he(x, n-1);
+}
 int main()
 {
     //recursive
@@ -39,5 +48,8 @@ int main()
 
     //iterative
     printf("%lf\n", ie(4,10));
+
+    // Horner's Rule
+    printf("%lf \n", he(4,10));
     return 0;
 }
