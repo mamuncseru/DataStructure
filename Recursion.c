@@ -7,9 +7,27 @@ struct Array
     int size;
     int length;
 };
+void IndirectRecursion2(int n);
+void IndirectRecursion1(int n)
+{
+    if(n>0)
+    {
+        printf("%d ", n);
+        IndirectRecursion2(n-1);
+    }
+}
+void IndirectRecursion2(int n)
+{
+    if(n>1)
+    {
+        printf("%d ", n);
+        IndirectRecursion1(n/2);
+    }
+}
+
+
 
 //Nested Recursion
-
 int NestedRecursion(int n)
 {
     if(n>100)
@@ -130,10 +148,16 @@ int main()
     int res = NestedRecursion(95);
     printf("%d\n", res);
 
+    //Indirect Recursion
+    printf("\nIndirect Recursion\n");
+    IndirectRecursion1(20);
+
+
     //Factorial
     printf("\nEnter the number that you determine the factorial: ");
     scanf("%d", &fact);
     printf("%lld\n", Factorial(fact));
+
 
 
 
